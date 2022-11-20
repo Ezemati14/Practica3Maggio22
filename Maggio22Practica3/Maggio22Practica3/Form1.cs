@@ -28,23 +28,56 @@ namespace Maggio22Practica3
             textoTelegrama = txtTelegrama.Text;
             //EzequielMaggio Practica 3 2022
             if (cbUrgente.Checked)
+            {
                 tipoTelegrama = 'u';
+            }
+            else
+                tipoTelegrama = 'o';
+                
 
             //EzequielMaggio Practica 3 2022
-            numPalabras = textoTelegrama.Length;
+            //numPalabras = textoTelegrama.Length;
             //EzequielMaggio Practica 3 2022
             if (tipoTelegrama == 'o')
+            {
+                for (int i = 0; i < textoTelegrama.Length;i++ )
+                {
+                    if (textoTelegrama[i] == ' ' || textoTelegrama[i] == '.' || textoTelegrama[i] == ',')
+                    {
+                        numPalabras++;
+                    }
+                }
+            
+            
                 if (numPalabras <= 10)
-                    coste = 25;
+                    coste = 2.5;
+
                 else
+                {
                     coste = 0.5 * numPalabras;
+                    coste = coste - 2.5;
+                }
+                    ;
+
+            }
             else
             //EzequielMaggio Practica 3 2022
-            if (tipoTelegrama == 'u')
+            if (cbUrgente.Checked == true)
+            {
+                for (int i = 0; i < textoTelegrama.Length; i++)
+                {
+                    if (textoTelegrama[i] == ' ' || textoTelegrama[i] == '.' || textoTelegrama[i] == ',')
+                    {
+                        numPalabras++;
+                    }
+                }
+
                 if (numPalabras <= 10)
                     coste = 5;
                 else
                     coste = 5 + 0.75 * (numPalabras - 10);
+            }
+                
             else
                 //EzequielMaggio Practica 3 2022
                 coste = 0;
