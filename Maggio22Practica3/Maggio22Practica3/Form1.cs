@@ -24,21 +24,39 @@ namespace Maggio22Practica3
             char tipoTelegrama = ' ';
             int numPalabras = 0;
             double coste;
+            int vueltas = 1;
             //EzequielMaggio Practica 3 2022
             textoTelegrama = txtTelegrama.Text;
             //EzequielMaggio Practica 3 2022
-            if (cbUrgente.Checked)
+            while (vueltas == 1)      
             {
-                tipoTelegrama = 'u';
+                tipoTelegrama = ' ';
+                if (cbUrgente.Checked)
+                {
+                    tipoTelegrama = 'u';
+                    vueltas = 2;
+                }
+
+                if (cbUrgente2.Checked)
+                {
+                    tipoTelegrama = 'o';
+                    vueltas = 2; 
+                }
+                if (cbUrgente2.Checked == false && cbUrgente.Checked == false)
+                {
+                    MessageBox.Show("Tiene que marcar el tipo de telegama. Si urgente, u ordinario");
+                    vueltas = 1; ;
+                }
+                   
+               
             }
-            else
-                tipoTelegrama = 'o';
+           
                 
 
             //EzequielMaggio Practica 3 2022
             //numPalabras = textoTelegrama.Length;
             //EzequielMaggio Practica 3 2022
-            if (tipoTelegrama == 'o')
+            if (cbUrgente2.Checked == true)
             {
                 for (int i = 0; i < textoTelegrama.Length;i++ )
                 {
